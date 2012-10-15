@@ -1,13 +1,14 @@
 DevBatchAppStore::Application.routes.draw do
   resources :users
+  resources :products
   resources :employee
   resources :sessions, only: [:new, :create, :destroy]
 
   get "employee/new"
 
-  #get "users/new"
-
   root to: 'static_pages#home'
+
+  match '/new_item',  to: 'products#new'
 
   match '/signup',  to: 'users#new'
   match '/signin',  to: 'sessions#new'
