@@ -1,0 +1,11 @@
+<% provide(:title, @employee.name) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= image_tag(@employee.image_url, height: "70px", width: "70px", alt: @employee.name) %>
+      <h1>
+        <%= @employee.name %>
+      </h1>
+    </section>
+  </aside>
+</div>

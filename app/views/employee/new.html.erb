@@ -1,2 +1,39 @@
-<h1>Employee#new</h1>
-<p>Find me in app/views/employee/new.html.erb</p>
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@employee) do |e| %>
+        <%= render 'shared/error_messages' %>
+
+        <%= e.label :image_url %>
+        <%= e.text_field :image_url %>
+
+        <%= e.label :name %>
+        <%= e.text_field :name %>
+
+        <%= e.label :designation %>
+        <%= e.text_field :designation %>
+
+        <%= e.label :description %>
+        <%= e.text_field :description %>
+
+        <%= e.label :interests %>
+        <%= e.text_field :interests %>
+
+        <%= e.label :address %>
+        <%= e.text_field :address %>
+
+        <%= e.label :email %>
+        <%= e.text_field :email %>
+
+        <%= e.label :password %>
+        <%= e.password_field :password %>
+
+        <%= e.label :password_confirmation, "Confirmation" %>
+        <%= e.password_field :password_confirmation %>
+
+        <%= e.submit "Create my account", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
