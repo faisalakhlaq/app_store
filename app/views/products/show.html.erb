@@ -1,0 +1,18 @@
+<% provide(:title, @product.title) %>
+<div class="row">
+  <aside class="span4">
+    <section>
+      <%= image_tag(@product.image_url, height: "50px", width: "50px",  alt: @product.title) %>
+      <h1>
+        <%= @product.title %>
+      </h1>
+      <%= "Description: " + @product.description %>
+      <%= "Version: " + @product.version %>
+      <%= "Languages Supported: " + @product.languages %>
+      <%#= "Price: " + @product.price.to_s %>
+      <span class="price"><%= "Price: " + number_to_currency(@product.price) %></span>
+
+      <%= link_to "Edit Item", edit_product_path%>
+    </section>
+  </aside>
+</div>

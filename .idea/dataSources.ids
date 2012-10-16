@@ -11,4 +11,16 @@
       </library>
     </libraries>
   </data-source>
+  <data-source source="LOCAL" name="Rails app_store: test" product="SQLite" version="3.7.2" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native" uuid="f4cb7ae7-54fb-41b9-bdfb-50a0ebd6d628">
+    <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+    <jdbc-url>jdbc:sqlite:/home/faisal/Desktop/ROR/app_store/db/test.sqlite3</jdbc-url>
+    <libraries>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/xerial-sqlite-license.txt</url>
+      </library>
+      <library>
+        <url>file://$USER_HOME$/.RubyMine40/config/jdbc-drivers/sqlite-jdbc-3.7.2.jar</url>
+      </library>
+    </libraries>
+  </data-source>
 </component>

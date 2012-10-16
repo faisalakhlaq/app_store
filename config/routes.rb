@@ -1,10 +1,14 @@
 DevBatchAppStore::Application.routes.draw do
+  resources :line_items
+
+  resources :carts
+
+  get "store/index"
+
   resources :users
   resources :products
   resources :employee
   resources :sessions, only: [:new, :create, :destroy]
-
-  get "employee/new"
 
   root to: 'static_pages#home'
 

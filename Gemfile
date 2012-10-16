@@ -8,7 +8,9 @@ gem 'bootstrap-will_paginate', '0.0.6'
 
 gem 'sqlite3'
 
-gem 'annotate', '2.5.0', group: :development
+group :development do
+  gem 'annotate', '2.5.0'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

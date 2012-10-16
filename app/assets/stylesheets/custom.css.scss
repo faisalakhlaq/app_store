@@ -53,9 +53,8 @@ h2 {
 
 p {
   font-size: 1.1em;
-  line-height: 1.7em;
+  //line-height: 1.7em;
 }
-
 
 /* header */
 
@@ -161,6 +160,13 @@ footer {
       }
     }
     }
+
+  /* products index homepage*/
+
+  .products {
+    list-style: none;
+    display: inline;
+  }
 
   /* miscellaneous */
 
