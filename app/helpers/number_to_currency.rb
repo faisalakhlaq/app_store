@@ -1,1 +1,0 @@
-sprintf("$%0.02f", price)
