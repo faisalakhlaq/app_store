@@ -10,19 +10,16 @@ class CartsController < ApplicationController
     end
   end
 
-  # GET /carts/1
-  # GET /carts/1.json
   def show
+    begin
     @cart = Cart.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @cart }
+    rescue ActiveRecord::RecordNotFound
+      flash[:failure] = "No Cart";
+      redirect_to root_path
     end
   end
 
   # GET /carts/new
-  # GET /carts/new.json
   def new
     @cart = Cart.new
 
@@ -72,12 +69,12 @@ class CartsController < ApplicationController
   # DELETE /carts/1
   # DELETE /carts/1.json
   def destroy
-    @cart = Cart.find(params[:id])
+    @cart = current_cart
     @cart.destroy
+    session[:cart_id] = nil
 
-    respond_to do |format|
-      format.html { redirect_to carts_url }
-      format.json { head :no_content }
-    end
+    redirect_to root_url
+    flash[:success] = "Your cart is empty"
   end
-end
+
+  end

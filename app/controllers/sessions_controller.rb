@@ -15,6 +15,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    current_cart.destroy
     sign_out
     redirect_to root_path
   end

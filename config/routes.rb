@@ -1,20 +1,19 @@
 DevBatchAppStore::Application.routes.draw do
   resources :line_items
-
   resources :carts
-
-  get "store/index"
-
   resources :users
   resources :products
   resources :employee
   resources :sessions, only: [:new, :create, :destroy]
 
+  get "store/index"
+
   root to: 'static_pages#home'
 
-  match '/new_item',  to: 'products#new'
-
-  match '/signup',  to: 'users#new'
+  match '/new_order',  to: 'order#new'
+  match '/new_item',   to: 'products#new'
+  match '/show_cart',  to: 'carts#show'
+  match '/signup',     to: 'users#new'
   match '/signin',  to: 'sessions#new'
   match '/signout', to: 'sessions#destroy', via: :delete
   match '/about',   to: 'static_pages#about'

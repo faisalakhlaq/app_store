@@ -38,27 +38,20 @@ class LineItemsController < ApplicationController
   end
 
   # POST /line_items
-  # POST /line_items.json
   def create
     @cart = current_cart
     product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(:product => product)
-    respond_to do |format|
-      if @line_item.save
-        redirect_to @line_item.cart
-        flash[:success] = "Line item was successfully created."
+    @line_item = @cart.add_product(product.id)
 
-        render :xml => @line_item,
-                            :status => :created, :location => @line_item
+      if @line_item.save
+        flash[:success] = "Item  added to the cart."
+        redirect_to @line_item.cart
       else
         render :action => "new"
-
       end
     end
-    end
 
-
-    # PUT /line_items/1
+  # PUT /line_items/1
   # PUT /line_items/1.json
   def update
     @line_item = LineItem.find(params[:id])

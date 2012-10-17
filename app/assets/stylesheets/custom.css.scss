@@ -163,9 +163,20 @@ footer {
 
   /* products index homepage*/
 
-  .products {
+  #static_pages .product_title {
+    font: 120% bold;
+  }
+
+
+  container {
+    width: 600px;
+    height: 200px;
     list-style: none;
     display: inline;
+    background-color: #666;
+    div {
+      display: inline;
+    }
   }
 
   /* miscellaneous */
