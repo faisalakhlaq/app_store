@@ -1,7 +1,6 @@
 <% @product.each do |product| %>
     <div class="entry">
-        <%= link_to image_tag(product.image_url, height: "50px", width: "50px",style: "margin-left:10px",  alt: product.title)%>
-
+        <%= link_to image_tag(product.image_url, height: "50px", width: "50px", alt: product.title), product %>
         <h3><%= product.title %></h3>
         <%= truncate(strip_tags(product.description), :length => 80) %>
         <div>

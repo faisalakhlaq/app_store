@@ -6,13 +6,12 @@
       <h1>
         <%= @product.title %>
       </h1>
-      <%= "Description: " + @product.description %>
-      <%= "Version: " + @product.version %>
-      <%= "Languages Supported: " + @product.languages %>
-      <%#= "Price: " + @product.price.to_s %>
+      <li><%= "Description: " + @product.description %></li>
+      <li><%= "Version: " + @product.version %></li>
+      <li><%= "Languages Supported: " + @product.languages %></li>
       <span class="price"><%= "Price: " + number_to_currency(@product.price) %></span>
 
-      <%= link_to "Edit Item", edit_product_path%>
+      <li><%= link_to "Edit Item", edit_product_path(@product)%></li>
     </section>
   </aside>
 </div>
