@@ -4,9 +4,10 @@
     <section>
       <h3>
        <%= "User name: " + @user.name %>
-        <br />
-        <%= "Address: " + @user.address %>
       </h3>
+      <%= "Address: " + @user.address %>
+      <br />
+      <%= "Email: " + truncate(strip_tags(@user.email) + ".....", :length => 5) %>
     </section>
   </aside>
 </div>
