@@ -1,6 +1,8 @@
 <div class="payment_form" >
-<fieldset>
-<legend>Please Enter Your Details</legend>
-<%= render 'fields' %>
-</fieldset>
+<div class="span6 offset3">
+  <%= form_for(:cart) do |f| %>
+      <%= render 'fields', f: f %>
+  <% end %>
 </div>
+</div>
+

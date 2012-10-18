@@ -11,6 +11,7 @@
               <li><%#= link_to "Cart", show_cart_path %></li>
           <%# end  %>
           <% if signed_in? %>
+              <li><%= link_to "Add Product", new_product_path %></li>
               <li><%= link_to "Users", users_path %></li> <%# display only if the current user is admin %>
               <li id="fat-menu" class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">

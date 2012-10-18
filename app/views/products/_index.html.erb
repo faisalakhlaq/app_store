@@ -1,14 +1,13 @@
 <% @product.each do |product| %>
+    <div class="entry">
+        <%= link_to image_tag(product.image_url, height: "50px", width: "50px",style: "margin-left:10px",  alt: product.title)%>
 
-     <div>
-    <%= link_to image_tag(product.image_url, height: "50px", width: "50px",  alt: product.title)%>
-
-    <%= product.title %>
-    <%= truncate(strip_tags(product.description), :length => 80) %>
-    <span class="price"><%= number_to_currency(product.price) %></span>
-
-    <%= button_to 'Add to Cart' , line_items_path(:product_id => product) %>
-     </div>
-    <br />
+        <h3><%= product.title %></h3>
+        <%= truncate(strip_tags(product.description), :length => 80) %>
+        <div>
+        <span class="price"><%= number_to_currency(product.price) %></span>
+        <%= button_to 'Add to Cart' , line_items_path(:product_id => product) %>
+        </div>
+    </div>
+  <br />
 <% end %>
-
