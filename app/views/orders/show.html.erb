@@ -1,0 +1,12 @@
+<% provide(:title, "Order") %>
+
+<h3>Your Order Details</h3>
+<%#= render @order.line_items %>
+<% @order.line_items.each do |item| %>
+    <h5>Product ID: </h5>
+    <%= item.product_id %>
+    <%#= product = find_product_by_id(item.product_id.to_i) %>
+     <%#= render @product = Product.find(params[item.product_id])  %>
+    <%#= render product  %>
+    <%#= product.title %>
+<% end %>

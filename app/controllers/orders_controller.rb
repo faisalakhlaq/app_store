@@ -7,7 +7,10 @@ class OrdersController < ApplicationController
       return
     end
     @order = Order.new
+  end
 
+  def show
+    @order = Order.find(params[:id])
   end
 
   def create
@@ -16,8 +19,9 @@ class OrdersController < ApplicationController
       if @order.save
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
-        flash[:thanks] = "Thank you for your order."
-        redirect_to root_url
+        flash[:thanks] = "Thank you! Your order has been processed."
+        redirect_to root_path
+        #render "orders/show"
       else
         render :action => "new"
       end
