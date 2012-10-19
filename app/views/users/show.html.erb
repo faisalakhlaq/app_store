@@ -1,3 +1,4 @@
+<% if signed_in? && ( admin_user? || current_user?(@user) ) %>
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="span4">
@@ -8,6 +9,14 @@
       <%= "Address: " + @user.address %>
       <br />
       <%= "Email: " + truncate(strip_tags(@user.email) + ".....", :length => 5) %>
+      <br />
+      <% if admin_user? %>
+      <%= link_to "delete", @user, method: :delete,
+                  data: { confirm: "Are you sure to delete " + @user.name + "?"} %>
+          <% end %>
     </section>
   </aside>
 </div>
+    <% else %>
+        <% flash[:failure]= "Sorry you do not have the rights to view this user" %>
+<% end %>

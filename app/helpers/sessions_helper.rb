@@ -35,4 +35,12 @@
       session[:return_to] = request.url
     end
 
+    def admin_user?
+      if signed_in?
+        self.current_user.admin?
+      else
+        false
+        end
+    end
+
   end

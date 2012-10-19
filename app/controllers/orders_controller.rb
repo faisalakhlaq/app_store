@@ -22,6 +22,16 @@ class OrdersController < ApplicationController
         render :action => "new"
       end
   end
+
+  def index
+    @orders = Order.paginate :page=>params[:page], :order=>'created_at desc' ,
+                             :per_page => 10
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml { render :xml => @orders }
+    end
+  end
+
 end
 
 

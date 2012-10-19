@@ -1,3 +1,4 @@
+<% if admin_user? %>
 <% provide(:title, "Edit Item") %>
 <h1>Edit Item</h1>
 
@@ -11,3 +12,6 @@
 
   </div>
 </div>
+<% else %>
+    <% flash[:failure]="Sorry you do not have the rights to edit a product" %>
+<% end %>

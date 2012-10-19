@@ -1,8 +1,8 @@
-<% @products.each do |product| %>
+<% @product.each do |product| %>
     <div class="entry">
-      <div style="float: left; width: 80px;">
-        <%= link_to image_tag(product.image_url, height: "50px", width: "50px", alt: product.title), product %>
-      </div>
+        <div style="float: left; width: 80px;">
+            <%= link_to image_tag(product.image_url, height: "50px", width: "50px", alt: product.title), product %>
+        </div>
       <div style="float: left;">
         <h3><%= product.title %></h3>
         <%= truncate(strip_tags(product.description), :rows => 3, :length => 100) %>
@@ -12,5 +12,5 @@
         <%= button_to 'Add to Cart' , line_items_path(:product_id => product) %>
       </div>
     </div>
-    <br />
+  <br />
 <% end %>

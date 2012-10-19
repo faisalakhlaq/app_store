@@ -1,3 +1,4 @@
+<% if admin_user? %>
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
 
@@ -8,3 +9,6 @@
 </ul>
 
 <%= will_paginate %>
+<% else %>
+    <% flash[:failure]= "Sorry you do not have the rights to view all users" %>
+<% end %>

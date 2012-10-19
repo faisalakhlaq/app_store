@@ -4,7 +4,8 @@
 <%= will_paginate %>
 
 <ul class="products_index">
-  <%= render @products %>
+  <%#= render 'products/_index', :locals => {:products => @products}  %>
+  <% render 'products/index' %>
 </ul>
 
 <%= will_paginate %>

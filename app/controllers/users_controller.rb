@@ -13,7 +13,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    if admin_user?
+        @users = User.paginate(page: params[:page])
+    else
+      flash[:failure]= "Sorry you cannot view all users"
+      end
   end
 
   def create

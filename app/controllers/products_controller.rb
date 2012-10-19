@@ -2,7 +2,12 @@ class ProductsController < ApplicationController
   #before_filter :admin_user,     only: [:destroy, :create]
 
   def new
-    @product = Product.new
+    if admin_user?
+      @product = Product.new
+    else
+      flash[:failure]= "Sorry you do not have the rights to edit a product"
+      redirect_to root_url
+    end
   end
 
   def show
@@ -10,11 +15,11 @@ class ProductsController < ApplicationController
   end
 
   def index
-    @product = Product.paginate(page: params[:page])
+    @products = Product.paginate(page: params[:page])
+    #@product = Product.paginate :page=>params[:page], :per_page => 10
   end
 
   def create
-    # only if the current user is admin then the product creation should be possible
     @product = Product.new(params[:product])
     if @product.save
       flash[:success] = "New item / product created!"
@@ -25,7 +30,11 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    if admin_user?
+      @product = Product.find(params[:id])
+    else
+      flash[:failure]= "Sorry you do not have the rights to edit a product"
+    end
   end
 
   def update
@@ -42,6 +51,14 @@ class ProductsController < ApplicationController
     Product.find(params[:id]).destroy
     flash[:success] = "Item / product deleted."
     redirect_to root_path
+  end
+
+  def who_bought
+    @product = Product.find(params[:id])
+    respond_to do |format|
+      format.atom
+      format.xml { render :xml => @product }
+    end
   end
 
   #def admin_user

@@ -21,6 +21,10 @@ DevBatchAppStore::Application.routes.draw do
   match '/contact', to: 'static_pages#contact'
   match '/help',    to: 'static_pages#help'
 
+  resources :products do
+    get :who_bought, :on => :member
+  end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

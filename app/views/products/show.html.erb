@@ -11,7 +11,9 @@
       <li><%= "Languages Supported: " + @product.languages %></li>
       <span class="price"><%= "Price: " + number_to_currency(@product.price) %></span>
 
+      <% if admin_user? %>
       <li><%= link_to "Edit Item", edit_product_path(@product)%></li>
+          <% end %>
     </section>
   </aside>
 </div>
