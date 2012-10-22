@@ -20,8 +20,8 @@ class OrdersController < ApplicationController
         Cart.destroy(session[:cart_id])
         session[:cart_id] = nil
         flash[:thanks] = "Thank you! Your order has been processed."
-        redirect_to root_path
-        #render "orders/show"
+        #redirect_to root_path
+        render "orders/show"
       else
         render :action => "new"
       end
@@ -30,12 +30,6 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.paginate :page=>params[:page], :order=>'created_at desc' ,
                              :per_page => 10
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml { render :xml => @orders }
-    end
   end
 
 end
-
-

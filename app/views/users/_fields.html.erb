@@ -1,5 +1,8 @@
 <%= render 'shared/error_messages', object: f.object %>
 
+<%= f.label :image_url %>
+<%= f.file_field :image_url %>
+
 <%= f.label :name %>
 <%= f.text_field :name %>
 
@@ -14,3 +17,4 @@
 
 <%= f.label :password_confirmation, "Confirm Password" %>
 <%= f.password_field :password_confirmation %>
+

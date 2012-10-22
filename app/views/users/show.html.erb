@@ -2,6 +2,9 @@
 <% provide(:title, @user.name) %>
 <div class="row">
   <aside class="span4">
+    <div>
+      <%= image_tag (@user.image_url) %>
+    </div>
     <section>
       <h3>
        <%= "User name: " + @user.name %>
@@ -10,6 +13,8 @@
       <br />
       <%= "Email: " + truncate(strip_tags(@user.email) + ".....", :length => 5) %>
       <br />
+      <%#= link_to "Edit", @user, method: :edit %>
+
       <% if admin_user? %>
       <%= link_to "delete", @user, method: :delete,
                   data: { confirm: "Are you sure to delete " + @user.name + "?"} %>

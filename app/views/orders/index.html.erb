@@ -1,4 +1,5 @@
 <% if admin_user? %>
+<% provide(:title, "Orders") %>
 <h1>Orders</h1>
 <table>
   <tr>
@@ -20,6 +21,7 @@
   <% end %>
 </table>
 <br />
+
 <p><%= will_paginate @orders %></p>
 <% else %>
     <% flash[:failure]= "Sorry you do not have the rights to view the orders"  %>

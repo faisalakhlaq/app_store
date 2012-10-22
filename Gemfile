@@ -7,8 +7,8 @@ gem 'will_paginate', '3.0.3'
 gem 'bootstrap-will_paginate', '0.0.6'
 #gem 'activemerchant', '~> 1.9.0' #for mechanize library but the functionality is not implemented yet
 
+gem 'sqlite3'
 group :development do
-  gem 'sqlite3'
   gem 'annotate', '2.5.0'
 end
 
@@ -21,6 +21,8 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'rmagick'
+gem 'carrierwave'
 
 group :production do
   gem 'pg', '0.12.2'
