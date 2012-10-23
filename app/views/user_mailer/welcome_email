@@ -1,0 +1,9 @@
+Dear <%= @user.name %>, We welcome you to DevBatch App Store
+===============================================
+
+You have successfully signed up to devbatch-app-store.com,
+your username is: <%= @user.email %>.
+
+To login to the site, just follow this link: <%= @url %>.
+
+Thanks for joining and have a great day!

@@ -25,8 +25,9 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "Welcome to the DevBatch App Store!"
-      redirect_to root_path
-      # redirect_to @user
+      UserMailer.welcome_email(@user).deliver
+      #redirect_to root_path
+       redirect_to @user
     else
       render 'new'
     end

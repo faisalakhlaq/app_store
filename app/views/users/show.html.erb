@@ -1,27 +1,27 @@
 <% if signed_in? && ( admin_user? || current_user?(@user) ) %>
+
 <% provide(:title, @user.name) %>
 <div class="row">
-  <aside class="span4">
+
     <div>
       <%= image_tag (@user.image_url) %>
+      <%# check if its not a valid url then display a custom picture %>
     </div>
-    <section>
-      <h3>
-       <%= "User name: " + @user.name %>
-      </h3>
-      <%= "Address: " + @user.address %>
-      <br />
-      <%= "Email: " + truncate(strip_tags(@user.email) + ".....", :length => 5) %>
-      <br />
+
+    <div>
+       <%= "User name: " + @user.name %>  <br />
+      <%= "Address: " + @user.address %>  <br />
+      <%= "Email: " + truncate(strip_tags(@user.email) + ".....", :length => 5) %><br />
       <%#= link_to "Edit", @user, method: :edit %>
 
       <% if admin_user? %>
       <%= link_to "delete", @user, method: :delete,
                   data: { confirm: "Are you sure to delete " + @user.name + "?"} %>
-          <% end %>
-    </section>
-  </aside>
-</div>
-    <% else %>
+
+    </div>
+
+  </div>
+      <% end %>
+<% else %>
         <% flash[:failure]= "Sorry you do not have the rights to view this user" %>
 <% end %>
